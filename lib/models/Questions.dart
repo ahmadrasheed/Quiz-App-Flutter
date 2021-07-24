@@ -10,8 +10,8 @@ const List sample_data = [
   {
     "id": 1,
     "question":
-        "Flutter is an open-source UI software development kit created by ______",
-    "options": ['Apple', 'Google', 'Facebook', 'Microsoft'],
+        "What is a correct syntax to output 'Hello World' in Python?",
+    "options": [' p("Hello World")', ' print("Hello World")', ' echo("Hello World");', ' echo "Hello World"'],
     "answer_index": 1,
   },
   {
