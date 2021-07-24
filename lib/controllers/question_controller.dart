@@ -1,13 +1,22 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
+import 'package:quiz_app/db/Contact.dart';
+import 'package:quiz_app/db/dbhelper.dart';
 import 'package:quiz_app/models/Questions.dart';
 import 'package:quiz_app/screens/score/score_screen.dart';
+import 'package:sqflite/sqflite.dart';
+
+import '../models/Questions.dart';
+import '../models/Questions.dart';
 
 // We use get package for our state management
 
 class QuestionController extends GetxController
     with SingleGetTickerProviderMixin {
+
+
   // Lets animated our progress bar
 
   AnimationController _animationController;
@@ -23,11 +32,16 @@ class QuestionController extends GetxController
         (question) => Question(
             id: question['id'],
             question: question['question'],
-            options: question['options'],
+            a: question['a'],
+            b: question['b'],
+            c: question['c'],
+            d: question['d'],
             answer: question['answer_index']),
       )
       .toList();
+
   List<Question> get questions => this._questions;
+
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -45,9 +59,17 @@ class QuestionController extends GetxController
   int _numOfCorrectAns = 0;
   int get numOfCorrectAns => this._numOfCorrectAns;
 
+  // DatabaseHelper  _dbhelper;
+  // Future< List<Question>> _questions;
+  // Future<List<Question>> get questions2 => this._questions;
+
   // called immediately after the widget is allocated memory
   @override
   void onInit() {
+
+
+
+print('from _question  55555555555555555555555555555555555  ');
     // Our animation duration is 60 s
     // so our plan is to fill the progress bar within 60s
     _animationController =

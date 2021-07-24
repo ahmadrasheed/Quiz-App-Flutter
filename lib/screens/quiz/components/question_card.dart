@@ -35,13 +35,25 @@ class QuestionCard extends StatelessWidget {
                 .copyWith(color: kBlackColor),
           ),
           SizedBox(height: kDefaultPadding / 2),
-          ...List.generate(
-            question.options.length,
-            (index) => Option(
-              index: index,
-              text: question.options[index],
-              press: () => _controller.checkAns(question, index),
+           Option(
+              index: 0,
+              text: question.a,
+              press: () => _controller.checkAns(question, 0),
             ),
+          Option(
+            index: 1,
+            text: question.b,
+            press: () => _controller.checkAns(question, 1),
+          ),
+          Option(
+            index: 2,
+            text: question.c,
+            press: () => _controller.checkAns(question, 2),
+          ),
+          Option(
+            index: 3,
+            text: question.d,
+            press: () => _controller.checkAns(question, 3),
           ),
         ],
       ),
